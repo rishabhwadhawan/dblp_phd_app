@@ -1,0 +1,68 @@
+
+var fs = require('fs');
+var express = require('express');
+
+var xml2js = require('xml2js');
+var util = require('util');
+var app = express();
+
+var htmlfile = "index.html";
+
+var bodyParser = require('body-parser');
+
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); // to support JSON-encoded bodies
+
+app.get('/', function(request, response) {
+var html = fs.readFileSync(htmlfile).toString();
+response.send(html);
+});
+
+var port = process.env.PORT || 8080;
+app.listen(port, function() {
+console.log("Listening on " + port);
+});
+
+var text;
+fs.readFile("phddata.xml",function(err,d){
+  if(err) throw err;
+  text = d.toString();
+  });
+
+
+var parser = new xml2js.Parser();
+var path;
+
+app.post('/app', function (req, res) {
+  //var alpha = req.query.author.toString();
+
+  var beta = req.body.name.toLowerCase(); 
+
+  parser.parseString(text,function(err,result){
+    
+    var phd = result.dblp;
+    var phdpeople = phd.phdthesis;
+      
+    for(i=0;i<phdpeople.length;i++)
+    {
+      var author = phdpeople[i].author.toString().toLowerCase();
+      
+      if(author == beta)
+      {
+        var school = phdpeople[i].school.toString().toLowerCase();
+        console.log(school);
+        //console.log(res);
+        //res.status(200);
+        res.send(school);
+      }
+    }
+  });
+    
+});
+
+
+
+  
+
