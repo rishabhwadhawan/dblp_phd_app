@@ -6,7 +6,8 @@
   "main": "web.js",
   "scripts": {
      "start": "node web.js"
-  }
+  },
+  
   "dependencies": {
     "body-parser": "^1.9.0",
     "ejs": "^1.0.0",
