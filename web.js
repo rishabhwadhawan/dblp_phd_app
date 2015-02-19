@@ -6,7 +6,10 @@ var xml2js = require('xml2js');
 var util = require('util');
 var app = express();
 
-var htmlfile = "index.html";
+var detailsfile = "details.html";
+
+var phdfile = "phd.html";
+var authorsfile = "authors.html";
 
 var bodyParser = require('body-parser');
 
@@ -15,9 +18,14 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 })); // to support JSON-encoded bodies
 
-app.get('/', function(request, response) {
-var html = fs.readFileSync(htmlfile).toString();
-response.send(html);
+app.get('/phd', function(request, response) {
+  var phdhtml = fs.readFileSync(phdfile).toString();
+response.send(phdhtml);
+});
+
+app.get('/authors', function(request, response) {
+  var authorshtml = fs.readFileSync(authorsfile).toString();
+response.send(authorshtml);
 });
 
 var port = process.env.PORT || 8080;
@@ -25,7 +33,10 @@ app.listen(port, function() {
 console.log("Listening on " + port);
 });
 
+
+//THIS IS ALL PHD DATA FROM HERE DONT TOUCH
 var text;
+
 fs.readFile("phddata.xml",function(err,d){
   if(err) throw err;
   text = d.toString();
@@ -35,7 +46,6 @@ fs.readFile("phddata.xml",function(err,d){
 var parser = new xml2js.Parser();
 
 app.post('/app', function (req, res) {
-  //var alpha = req.query.author.toString();
 
   var beta = req.body.name.toString().toLowerCase(); 
 
@@ -61,6 +71,53 @@ app.post('/app', function (req, res) {
   });    
 });
 
+//AUTHORS START FROM HERE
+
+//DETAILS PAGE FOR NEW AUTHOR POST AJAX FUNCTION
+
+//THIS IS ALL AUTHORS DATA FROM HERE DONT TOUCH
+var authorstext;
+
+fs.readFile("authors.xml",function(err,d){
+  if(err) throw err;
+  authorstext = d.toString();
+  });
+
+app.get('/details', function(req,res){
+  var details = fs.readFileSync(detailsfile).toString();
+  res.send(details);
+});
+
+app.post('/authordetails', function (req, res) {
+  res.status(200);
+  res.send("Values Entered in Database");
+});
+
+app.post('/getlocation', function (req, res) {
+
+  var name = req.body.name.toString().toLowerCase(); 
+  var article = req.body.article.toString().toLowerCase(); 
+ 
+  parser.parseString(authorstext,function(err,result){
+    
+    var authors = result.dblp;
+    
+    var articles = authors.article;
+    
+    for(i=0;i < articles.length;i++)
+    {
+      
+      var articletitle = articles[i].title.toString().toLowerCase();
+      
+      if(articletitle == article)
+      {
+        var url = article[i].ee.toString().toLowerCase();
+        console.log(url);    
+        res.status(200);
+      }
+    }
+  });    
+});
 
 
   

@@ -31,7 +31,8 @@
       <input id="address" type="textbox" disabled="enabled"> 
       <input type="button" value="Geocode" onclick="codeAddress()"><br>
       <form id="myform" method='post'>
-        <input id="authorname" name = 'author' type="textbox">  
+        <input id="authorname" name = 'author' type="textbox">
+        <input id="article" name = 'title' type="textbox">  
         <button id  = "submitbutton" type ="submit" value = "submit" >Submit</button>
         <button id = 'newauthor' onclick="window.location.href = '/details'">New Author</button>
       </form>
@@ -76,9 +77,10 @@
         console.log($('#authorname').val());
         $.ajax({
             type: 'POST',
-            url: '/app',
+            url: '/getlocation',
             data: {
               name: $('#authorname').val().toString()
+              article: $('#article').val().toString()
             }
         })
         
