@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<dblp>
+<article mdate="2012-02-20" key="journals/icl/Ligeti00">
+<author>Agnes Ligeti</author>
+<title>Outage probability in the presence of correlated lognormal useful and interfering components.</title>
+<pages>15-17</pages>
+<year>2000</year>
+<volume>4</volume>
+<journal>IEEE Communications Letters</journal>
+<number>1</number>
+<ee>http://dx.doi.org/10.1109/4234.823535</ee>
+<url>db/journals/icl/icl4.html#Ligeti00</url>
+</article>
+<article mdate="2014-05-26" key="journals/icl/WonPS14">
+<author>Myounggyu Won</author>
+<author>Taejoon Park</author>
+<author>Sang Hyuk Son</author>
+<title>Asym-MAC: A MAC Protocol for Low-Power Duty-Cycled Wireless Sensor Networks with Asymmetric Links.</title>
+<pages>809-812</pages>
+<year>2014</year>
+<volume>18</volume>
+<journal>IEEE Communications Letters</journal>
+<number>5</number>
+<ee>http://dx.doi.org/10.1109/LCOMM.2014.032014.132679</ee>
+<url>db/journals/icl/icl18.html#WonPS14</url>
+</article>
+<article mdate="2012-04-24" key="journals/icl/ZhangWZ12">
+<author>Jianan Zhang</author>
+<author>Eric W. M. Wong</author>
+<author>Moshe Zukerman</author>
+<title>Modeling an OBS Node under Critical Load and High Utilization Conditions.</title>
+<pages>544-546</pages>
+<year>2012</year>
+<volume>16</volume>
+<journal>IEEE Communications Letters</journal>
+<number>4</number>
+<ee>http://dx.doi.org/10.1109/LCOMM.2012.030512.112537</ee>
+<url>db/journals/icl/icl16.html#ZhangWZ12</url>
+</article>
+<article mdate="2014-08-11" key="journals/icl/Beek13">
+<author>Jaap van de Beek</author>
+<title>OFDM Spectral Precoding with Protected Subcarriers.</title>
+<pages>2209-2212</pages>
+<year>2013</year>
+<volume>17</volume>
+<journal>IEEE Communications Letters</journal>
+<number>12</number>
+<ee>http://dx.doi.org/10.1109/LCOMM.2013.111013.131492</ee>
+<url>db/journals/icl/icl17.html#Beek13</url>
+</article>
+<article key="journals/tkde/SarwatLEM14" mdate="2014-06-11">
+<author>Mohamed Sarwat</author>
+<author>Justin J. Levandoski</author>
+<author>Ahmed Eldawy</author>
+<author>Mohamed F. Mokbel</author>
+<title>LARS*: An Efficient and Scalable Location-Aware Recommender System.</title>
+<pages>1384-1399</pages>
+<year>2014</year>
+<volume>26</volume>
+<journal>IEEE Trans. Knowl. Data Eng.</journal>
+<number>6</number>
+<ee>http://ieeexplore.ieee.org/xpls/abs_all.jsp?arnumber=6228105</ee>
+<url>db/journals/tkde/tkde26.html#SarwatLEM14</url>
+</article>
+</dblp>
